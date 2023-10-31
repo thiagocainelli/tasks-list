@@ -51,6 +51,8 @@ function Tasks () {
                     className="bg-sky-700 outline-none py-1 px-2 rounded-md"
                     value={task}
                     onChange={(ev) => setTask(ev.target.value)}
+                    required
+                    minLength={3}
                 />
                 <button className="bg-sky-700 flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:scale-105 hover:brightness-110" type="submit"><IconPlus />Adicionar</button>
             </form>
@@ -63,11 +65,11 @@ function Tasks () {
                     </p>
                 ) : (
                     allTasks.map((task) => (
-                        <div key={task.id} className={`w-full flex justify-between items-center bg-sky-700 p-3 rounded-md ${task.isFinished ? "bg-green-500" : "bg-sky-700"}`}>
+                        <div key={task.id} className={`w-full flex justify-between items-center bg-sky-700 p-3 rounded-md ${task.isFinished ? "bg-green-700" : "bg-sky-700"}`}>
                             <p>{task.value}</p>
                             <div className="flex items-center gap-2">
-                                <button onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>
-                                <button onClick={() => removeTask(task.id)}><IconTrash/></button>
+                                <button className="bg-green-500 p-1 rounded-md hover:opacity-70" onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>
+                                <button className="bg-red-500 p-1 rounded-md hover:opacity-70" onClick={() => removeTask(task.id)}><IconTrash/></button>
                             </div>
                         </div>
                     ))

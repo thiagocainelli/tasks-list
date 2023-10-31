@@ -65,7 +65,7 @@ function Tasks () {
                     </p>
                 ) : (
                     allTasks.map((task) => (
-                        <div key={task.id} className={`w-full flex justify-between items-center bg-sky-700 p-3 rounded-md ${task.isFinished ? "bg-green-700" : "bg-sky-700"}`}>
+                        <div key={task.id} className={`w-full flex justify-between items-center p-3 rounded-md ${task.isFinished === true ? "bg-green-700" : "bg-sky-700"}`}>
                             <p>{task.value}</p>
                             <div className="flex items-center gap-2">
                                 <button className="bg-green-500 p-1 rounded-md hover:opacity-70" onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>

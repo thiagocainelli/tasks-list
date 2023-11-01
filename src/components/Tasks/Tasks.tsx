@@ -1,6 +1,6 @@
 "use client"
 
-import { IconPlus, IconTrash, IconSquareRoundedCheck } from "@tabler/icons-react"
+import { IconPlus, IconTrash, IconSquareRoundedCheck} from "@tabler/icons-react"
 import { useState } from "react"
 
 interface AllTasks {
@@ -40,7 +40,7 @@ function Tasks () {
         ));
     }
 
-
+    
     return (
         <div className="bg-sky-900 p-8 rounded-md flex flex-col flex-wrap">
             <h1 className="text-3xl text-center mb-5">Lista de Tarefas</h1>
@@ -54,9 +54,14 @@ function Tasks () {
                     required
                     minLength={3}
                 />
-                <button className="bg-sky-700 flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:scale-105 hover:brightness-110" type="submit"><IconPlus />Adicionar</button>
-            </form>
+        
+                <button className="bg-sky-700 flex items-center justify-center gap-1 px-2 py-1 rounded-md hover:scale-105 hover:brightness-110" type="submit"
+                >
+                    <IconPlus/> 
+                    Adicionar
+                </button>
 
+            </form>
 
             <div className="mt-10 flex flex-col gap-5">
                 {allTasks.length <= 0 ? (
@@ -65,11 +70,12 @@ function Tasks () {
                     </p>
                 ) : (
                     allTasks.map((task) => (
-                        <div key={task.id} className={`w-full flex justify-between items-center p-3 rounded-md ${task.isFinished === true ? "bg-green-700" : "bg-sky-700"}`}>
+                        <div key={task.id} className={`w-full flex justify-between items-center p-3 rounded-md border border-white ${task.isFinished === true ? "bg-green-700" : "bg-sky-700"}`}>
                             <p>{task.value}</p>
                             <div className="flex items-center gap-2">
-                                <button className="bg-green-500 p-1 rounded-md hover:opacity-70" onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>
-                                <button className="bg-red-500 p-1 rounded-md hover:opacity-70" onClick={() => removeTask(task.id)}><IconTrash/></button>
+                                <button className="bg-green-500 p-1 rounded-md hover:opacity-70 border border-white" onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>
+
+                                <button className="bg-red-500 p-1 rounded-md hover:opacity-70 border border-white" onClick={() => removeTask(task.id)}><IconTrash/></button>
                             </div>
                         </div>
                     ))

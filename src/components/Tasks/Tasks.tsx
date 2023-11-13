@@ -75,9 +75,9 @@ function Tasks () {
                             <div key={task.id} className={`w-full flex justify-between items-center p-3 rounded-md  ${task.isFinished === true ? "bg-green-700 text-zinc-400 line-through" : "bg-sky-700 text-white"}`}>
                                 <p>{task.value}</p>
                                 <div className="flex items-center gap-2">
-                                    <button className="bg-green-500 p-1 rounded-md hover:opacity-70 border border-white" onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>
+                                    <button className="bg-green-500 p-1 rounded-md hover:opacity-70 " onClick={() => finishTask(task.id)}><IconSquareRoundedCheck/></button>
 
-                                    <button className="bg-red-500 p-1 rounded-md hover:opacity-70 border border-white" onClick={() => removeTask(task.id)}><IconTrash/></button>
+                                    <button className="bg-red-500 p-1 rounded-md hover:opacity-70" onClick={() => removeTask(task.id)}><IconTrash/></button>
                                 </div>
                             </div>
                         ))
@@ -85,7 +85,6 @@ function Tasks () {
                 </div>
             </div>
         </MagicMotion>
-        
     )
 }
 
